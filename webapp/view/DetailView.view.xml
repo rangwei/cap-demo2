@@ -1,0 +1,38 @@
+ <mvc:View controllerName="com.myorg.myUI5App8.controller.DetailView"
+	displayBlock="true"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc">
+    <Page id="detail"
+    showNavButton="true"
+    navButtonPress=".onNavBack"
+    class="sapUiResponsiveContentPadding">
+        <content>
+        
+            <Panel>
+                <content>
+                        <Label text="ID" class="sapUiSmallMargin" />
+						<text text="{ID}" />
+						<Label text="NAME" class="sapUiSmallMargin" />
+						<text text="{name}" />
+                </content>
+            </Panel>
+            
+
+            <Panel>
+                <content>
+                    <List items="{books}">
+                    <items>
+                    <StandardListItem
+                        title="{ID}"
+                        description="{title}"
+                        type="Navigation"
+                        press=".showBook"
+                        />
+                    </items>
+                    </List>
+                </content>
+            </Panel>
+            
+        </content>
+    </Page>
+</mvc:View> 

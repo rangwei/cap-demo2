@@ -1,0 +1,73 @@
+ <mvc:View controllerName="com.myorg.myUI5App8.controller.BookView"
+	displayBlock="true"
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc">
+
+    <Page id="book"
+        showNavButton="true"
+        navButtonPress=".onNavBack"
+        class="sapUiResponsiveContentPadding">
+        <content>
+            <VBox class="sapUiSmallMargin">
+                  <f:Form id="FormDisplay354"
+			editable="false">
+			<f:title>
+				<core:Title text="Book" />
+			</f:title>
+                  
+                <f:layout>
+				<f:ResponsiveGridLayout
+					labelSpanXL="3"
+					labelSpanL="3"
+					labelSpanM="3"
+					labelSpanS="12"
+					adjustLabelSpan="false"
+					emptySpanXL="4"
+					emptySpanL="4"
+					emptySpanM="4"
+					emptySpanS="0"
+					columnsXL="1"
+					columnsL="1"
+					columnsM="1"
+					singleContainerFullSize="false" />
+			</f:layout>
+
+                
+			<f:formContainers>
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement label="ID">
+							<f:fields>
+								<Text text="{ID}"/>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Title">
+							<f:fields>
+								<Text text="{title}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Stock">
+							<f:fields>
+								<Text text="{stock}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Author">
+							<f:fields>
+								<Text text="{author_ID}" />
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+			</f:formContainers>
+            </f:Form>
+            </VBox>
+
+
+        </content>
+    </Page>
+
+    
+</mvc:View> 

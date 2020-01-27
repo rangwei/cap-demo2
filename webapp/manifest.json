@@ -1,0 +1,120 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "com.myorg.myUI5App8",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"dataSources" : {
+            "default" : {
+                "uri" : "http://localhost:8081/http://localhost:4004/catalog/",
+                "type" : "OData",
+                "settings" : {
+                    "odataVersion" : "4.0"
+                }
+            }
+        }
+	},
+
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "com.myorg.myUI5App8.view.MainView",
+			"type": "XML",
+			"async": true,
+			"id": "app"
+		},
+		"dependencies": {
+			"minUI5Version": "1.60.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "com.myorg.myUI5App8.i18n.i18n"
+				}
+			},
+			"" : {
+                "dataSource" : "default",
+                "settings" : {
+                    "synchronizationMode" : "None",
+                    "updateGroupId" : "myAppUpdateGroup"
+                }
+            }
+		},
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "com.myorg.myUI5App8.view",
+				"controlId": "app",
+				"controlAggregation": "pages",
+				"async": true
+			},
+			"routes": [{
+				"name": "RouteMainView",
+				"pattern": "RouteMainView",
+				"target": ["TargetMainView"]
+			},{
+				"name": "detail",
+				"pattern": "authors/{authorId}",
+				"target": ["TargetDetailView"]
+			},{
+				"name": "book",
+				"pattern": "books/{bookId}",
+				"target": ["TargetBookView"]
+			}],
+			"targets": {
+				"TargetMainView": {
+					"viewType": "XML",
+					"viewLevel": 1,
+					"viewName": "MainView"
+				},
+				"TargetDetailView": {
+					"viewType": "XML",
+					"viewLevel": 2,
+					"viewName": "DetailView"
+				},
+				"TargetBookView": {
+					"viewType": "XML",
+					"viewLevel": 3,
+					"viewName": "BookView"
+				}
+			}
+		}
+	}
+}
